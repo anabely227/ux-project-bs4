@@ -2,6 +2,7 @@ var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var sass        = require('gulp-sass');
 var deploy      = require('gulp-gh-pages');
+var build = require('gulp-build');
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
@@ -29,6 +30,19 @@ gulp.task('serve', ['sass'], function() {
     gulp.watch("src/*.html").on('change', browserSync.reload);
 });
 
+var options = {
+    helpers: [{
+      name: 'addition',
+      fn: function(a, b) { return a + b; }
+    }]
+  };
+   
+  gulp.task('build', function() {
+    gulp.src('pages/*.html')
+        .pipe(build({ title: 'Some page' }, options))
+        .pipe(gulp.dest('dist'))
+  }); 
+  
 /**
  * Push build to gh-pages
  */
