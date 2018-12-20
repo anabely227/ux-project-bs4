@@ -1,6 +1,132 @@
 // Variable Overrides 
 $theme-colors: (
-  "primary": #d95700
+  "primary":   #f7f7f7,
+  "secondary":  #ff4242
 );
 
-$body-bg: #7E7E7E;
+*, *:before, *:after {
+  box-sizing: border-box;
+  }
+
+$padding: 15px; 
+$borders: 15px;
+
+.calendar {
+  text-align: center;
+  .header {
+    padding: 10px 0;
+  }
+  [class*="icon-"]{
+    color: #ff4242;
+    position: relative;
+    top: 2px;
+    margin: 0 5px;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .days {
+    background: #ff4242;
+    padding: 20px;
+    border-radius: 0 0 5px 5px;
+    ul {
+      margin: 0; 
+      padding: 0;
+    }
+    li {
+      display: inline-block;
+      color: #ffffff;
+      padding: 5px 0;
+      width: 30px; height: 30px;
+      text-align: center;
+      cursor: pointer;
+      @media (max-width: 767px) {
+        width: 20px; height: 20px;
+      }
+      &.next, &.previous {
+        color: #c5c0c0;
+      }
+    }
+  }
+}
+
+
+.navbar {
+  width:100%;
+  background:none !important;
+
+  @media(max-width: 34em) {
+      background: black !important;
+  }
+
+  .navbar-toggler {
+      cursor:pointer;
+      outline:0;
+  }
+
+  .nav-link {
+      text-transform:uppercase;
+      font-weight:bold;
+
+  }
+
+  .nav-item {
+      padding: 0 1rem;
+
+      @media(max-width: 34em) {
+          padding: 0;
+      }
+
+      .nav-link {
+          @media(max-width: 34em) {
+              font-weight:normal;
+              color:#fff !important;
+          }
+      }
+  }
+}
+
+.nav {
+  width:100%;
+  background: #f7f7f7;
+
+  @media(max-width: 34em) {
+      background: black !important;
+  }
+
+  .navbar-toggler {
+      cursor:pointer;
+      outline:0;
+  }
+
+
+  .nav-link {
+      text-transform:uppercase;
+      font-weight:bold;
+      text-align: center;
+      color:#4d4d4d4d ;
+
+
+  }
+
+}
+
+body, html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Montserrat';
+  margin: 0;
+
+  header a {
+      color: #fff;
+      text-decoration: none;
+      padding: $padding;
+      display: block;
+      text-transform: uppercase;
+  }
+}
+
+// Bootstrap Sass Imports
+@import "node_modules/bootstrap/scss/bootstrap";
+
